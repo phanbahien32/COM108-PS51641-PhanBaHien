@@ -9,7 +9,7 @@ int main(){
     scanf("%f",&diemTB);
     //xuat
     printf("namSinh: %d\n",namSinh);
-    printf("Tuoi: %d\n",2026 -namSinh);
+    printf("Tuoi: %d\n",18 -namSinh);
     printf("diemTB: %f\n",diemTB);
 
     return 0;

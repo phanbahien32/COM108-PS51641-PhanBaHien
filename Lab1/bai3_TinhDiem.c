@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main()
+{
+  char mssv[10] = "PS51641";
+  char fullName[20] = "Phan Ba Hien";
+  float toan = 6;
+  float ly = 9;
+  float hoa = 7;
+
+  float dtb = ((toan * 2) + ly + hoa) / (float)4;
+
+  printf("Ma so sinh vien: %s\n", mssv);
+  printf("Ho va ten: %s\n", fullName);
+  printf("Diem trung binh: %.2f\n", dtb);
+
+  return 0;
+}

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/GOLDEN LAP/Pictures/COM108-PS51641-PhanBaHien/Lab2",
+      "program": "c:/Users/GOLDEN LAP/Pictures/COM108-PS51641-PhanBaHien/Lab2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
