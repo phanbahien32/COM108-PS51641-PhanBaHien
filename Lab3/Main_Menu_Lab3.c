@@ -1,37 +1,114 @@
 #include <stdio.h>
 #include <math.h>
-
-void tinhHocLuc(){
+void tinhHocluc(){
+    printf("Tinh hoc luc sinh vien\n");
     float diem;
-    printf("Nhap diem so (0.0 - 10.0): ");
+    do
+    {
+        printf("Nhap diem: ");
     scanf("%f", &diem);
-    if (diem < 0.0 || diem > 10.0) {
-        printf("Diem so nhap vao khong hop le!\n");
-    } else if (diem >= 9.0) {
-        printf("Hoc luc: Xuat sac\n");
-    } else if (diem >= 8.0) {
-        printf("Hoc luc: Gioi\n");
-    } else if (diem >= 6.5) {
-        printf("Hoc luc: Kha\n");
-    } else if (diem >= 5.0) {
-        printf("Hoc luc: Trung binh\n");
-    } else if (diem >= 3.5) {
-        printf("Hoc luc: Yeu\n");
-    }else {
-        printf("Hoc luc: Kem\n");
+    } while (diem < 0 || diem > 10);
+    if(diem>=9.0){
+        printf("Xuat sac\n");
+    }else if (diem>=8){
+        printf("Gioi\n");
+    }else if (diem>=6.5){
+        printf("Kha\n");
+    }else if (diem>=5){
+        printf("Trung binh\n");
+    }else if (diem>=3.5){
+        printf("Yeu\n");
+    }else{
+        printf("Kem\n");
     }
 }
-
-void giaiPTBachai() {
-    float a, b, c;
-    printf("Nhap ba he so a, b, c: ");
-    scanf("%f %f %f", &a, &b, &c);
-    if (a == 0) {
-        if (b == 0) {
-            if (c == 0) {
-                printf("Phuong trinh co vo so nghiem.\n");
-                
+void giaiPTbachai(){
+    printf("Giai phuong trinh bac hai\n");
+    float a,c,b,x1,x2,delta;
+    printf("Nhap a,b,c: ");
+    scanf("%f%f%f", &a,&b,&c);
+    printf("Phuong trinh %.0fx2 + %.0fx + %.0f = 0\n", a,b,c); 
+    if(a==0){
+        if(b==0){
+            if(c==0){
+                printf("Phuong trinh co vo so nghiem\n");
+            }else{
+                printf("Phuong trinh vo nghiem\n");
             }
+        }else{
+            x1 = -c/b;
+            printf("Phuong trinh co 1 nghiem x = %.2f\n", x1);
+        }
+    }else{
+        delta = b*b - 4*a*c;
+        if(delta<0){
+            printf("Phuong trinh vo nghiem\n");
+        }else if(delta==0)
+        {
+            x1 = -b/(2*a);
+            printf("Phuong trinh co nghiem kep x = %.2f\n", x1);
+        }else{
+            x1 = (-b + sqrt(delta))/(2*a);
+            x2 = (-b - sqrt(delta))/(2*a);
+            printf("Phuong trinh co 2 nghiem: x1 = %.2f, x2 = %.2f\n", x1, x2);
         }
     }
+}
+void tinhTiendien(){
+    float b1 = 1678, b2 = 1734, b3 = 2014, b4 = 2536, b5 = 2834, b6 = 2927;
+    float tongtien;
+    int soKW;
+    printf("Tinh tien dien tieu thu\n");
+    printf("Nhap so KW tieu thu: ");
+    scanf("%d", &soKW);
+    if(soKW <= 50){
+        tongtien = soKW * b1;
+    }else if (soKW <= 100)
+    {
+        tongtien = 50 * b1 + (soKW - 50) * b2;
+    }else if (soKW <= 200){
+        tongtien = 50 * b1 + 50 * b2 + (soKW - 100) * b3;
+    }
+    else if (soKW <= 300){
+        tongtien = 50 * b1 + 50 * b2 + 100 * b3 + (soKW - 200) * b4;
+    }
+    else if (soKW <= 400){
+        tongtien = 50 * b1 + 50 * b2 + 100 * b3 + 100 * b4 + (soKW - 300) * b5;
+    }
+    else{
+        tongtien = 50 * b1 + 50 * b2 + 100 * b3 + 100 * b4 + 100 * b5 + (soKW - 400) * b6;
+    }
+    printf("Tong tien cho %d KW tieu thu la: %.2f\n", soKW, tongtien);
+}
+int main (){
+    int chon;
+    do
+    {
+    printf("=== MENU CHUONG TRINH LAB 3 ===\n");
+    printf("0. Thoat chuong trinh\n");
+    printf("1. Tinh hoc luc sinh vien\n");
+    printf("2. Giai phuong trinh bac hai\n");
+    printf("3. Tinh tien dien tieu thu\n");
+    printf("Nhap lua chon cua ban: ");
+    scanf("%d", &chon);
+    switch (chon)
+    {
+    case 0:
+        printf("Thoat chuong trinh.\n");
+        break;
+    case 1:
+        tinhHocluc();
+        break;
+    case 2:
+        giaiPTbachai();
+        break;
+    case 3:
+        tinhTiendien();
+        break;
+    default:
+        printf("Ban phai nhap so tu 0 - 3\n");
+        break;
+    }
+    } while (chon !=0);
+    return 0;
 }
